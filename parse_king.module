@@ -1,0 +1,4 @@
+<?php
+function parse_king_init(){
+  
+}

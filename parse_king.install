@@ -1,0 +1,184 @@
+<?php
+function parse_king_schema(){
+  $schema['parse_king_keyword'] = array(
+    'fields' => array(
+      'id' => array(
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'word' => array(
+        'description' => '',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ),
+      'created_time' => array(
+        'description' => 'Created Date',
+        'type' => 'int',
+        'not null' => TRUE,
+      ),
+    ),
+    'primary key' => array('id'),
+    'mysql_suffix' => 'ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci',
+  );
+  $schema['parse_king_link'] = array(
+    'fields' => array(
+      'id' => array(
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'keyword_id' => array(
+        'description' => '',
+        'type' => 'int',
+        'unsigned' => TRUE,
+      ),
+      'url' => array(
+        'description' => '',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ),
+      'title' => array(
+        'description' => '',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE
+      ),
+      'source_domain_id' => array(
+        'description' => '',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => FALSE,
+      ),
+      'origin_html' => array(
+        'description' => '',
+        'type' => 'text',
+        'not null' => FALSE,
+      ),
+      'content' => array(
+        'description' => '',
+        'type' => 'text',
+        'not null' => FALSE,
+      ),
+      'parse_time' => array(
+        'description' => 'Created Date',
+        'type' => 'int',
+        'not null' => TRUE,
+      ),
+    ),
+    'primary key' => array('id'),
+    'mysql_suffix' => 'ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci',
+  );
+  $schema['parse_king_domain'] = array(
+    'fields' => array(
+      'id' => array(
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'name' => array(
+        'description' => '',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ),
+      'domain' => array(
+        'description' => '',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ),
+      'sup_domain_id' => array(
+        'description' => '',
+        'type' => 'int',
+        'not null' => FALSE,
+      ),
+    ),
+    'primary key' => array('id'),
+    'mysql_suffix' => 'ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci',
+  );
+  $schema['parse_king_jiaba_word'] = array(
+    'fields' => array(
+      'id' => array(
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'link_id' => array(
+        'description' => '',
+        'type' => 'int',
+        'not null' => TRUE,
+      ),
+      'word' => array(
+        'description' => '',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ),
+      'frequency' => array(
+        'description' => '',
+        'type' => 'int',
+        'not null' => FALSE,
+      ),
+    ),
+    'primary key' => array('id'),
+    'mysql_suffix' => 'ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci',
+  );
+
+  $schema['parse_king_search'] = array(
+    'fields' => array(
+      'id' => array(
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'keyword_id' => array(
+        'description' => '',
+        'type' => 'int',
+        'not null' => FALSE,
+      ),
+      'domain_id' => array(
+        'description' => '',
+        'type' => 'int',
+        'not null' => FALSE,
+      ),
+      'search_time' => array(
+        'description' => 'Search Date',
+        'type' => 'int',
+        'not null' => TRUE,
+      ),
+    ),
+    'primary key' => array('id'),
+    'mysql_suffix' => 'ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci',
+  );
+
+  $schema['parse_king_result'] = array(
+    'fields' => array(
+      'id' => array(
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'search_id' => array(
+        'description' => '',
+        'type' => 'int',
+        'not null' => FALSE,
+      ),
+      'link_id' => array(
+        'description' => '',
+        'type' => 'int',
+        'not null' => FALSE,
+      ),
+      'order' => array(
+        'description' => 'Result order',
+        'type' => 'int',
+        'not null' => TRUE,
+      ),
+    ),
+    'primary key' => array('id'),
+    'mysql_suffix' => 'ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci',
+  );
+  return $schema;
+}
