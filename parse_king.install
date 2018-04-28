@@ -63,9 +63,9 @@ function parse_king_schema(){
         'not null' => FALSE,
       ),
       'parse_time' => array(
-        'description' => 'Created Date',
+        'description' => 'Parse Time',
         'type' => 'int',
-        'not null' => TRUE,
+        'not null' => FALSE,
       ),
     ),
     'primary key' => array('id'),
@@ -82,7 +82,7 @@ function parse_king_schema(){
         'description' => '',
         'type' => 'varchar',
         'length' => 255,
-        'not null' => TRUE,
+        'not null' => FALSE,
       ),
       'domain' => array(
         'description' => '',
@@ -174,7 +174,7 @@ function parse_king_schema(){
       'order' => array(
         'description' => 'Result order',
         'type' => 'int',
-        'not null' => TRUE,
+        'not null' => FALSE,
       ),
     ),
     'primary key' => array('id'),
